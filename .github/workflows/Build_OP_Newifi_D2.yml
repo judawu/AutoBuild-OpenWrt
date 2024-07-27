@@ -55,8 +55,9 @@ jobs:
       run: |
         git clone --depth 1 $REPO_URL -b $REPO_BRANCH openwrt
         cd openwrt
-        echo "src-git ssrp https://github.com/fw876/helloworld.git" >> ./feeds.conf.default
-
+        # echo "src-git ssrp https://github.com/fw876/helloworld.git" >> ./feeds.conf.default
+        echo 'src-git small https://github.com/kenzok8/small' >>feeds.conf.default
+        echo 'src-git openclash https://github.com/vernesong/OpenClash' >>feeds.conf.default
     - name: Update & Install feeds
       working-directory: ./openwrt
       run: |
@@ -64,11 +65,11 @@ jobs:
         ./scripts/feeds install -a
         ./scripts/feeds install -a
     
-    #- name: Import external feeds - JerryKuKu Argon
+    #- name: Import external feeds - flrz Argon
     #  working-directory: ./openwrt
     #  run: |
-    #    git clone -b 18.06 https://github.com/jerrykuku/luci-theme-argon.git package/luci-theme-argon-jerrykuku
-    
+    #    git clone -b 18.06 https://github.com/flrz/luci-theme-argon.git package/luci-theme-argon-jerrykuku
+         
     - name: Configuration Customization - Build_Newifi_D2
       env:
         CONFIG_FILE: 'Newifi_D2.config'
