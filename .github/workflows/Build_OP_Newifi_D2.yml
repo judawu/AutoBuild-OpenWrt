@@ -11,7 +11,10 @@ name: Build_Newifi_D2
 on: 
   repository_dispatch:
   workflow_dispatch:
-
+env:
+ 
+ 
+  TZ: Asia/Shanghai
 jobs:
   build:
     runs-on: Ubuntu-22.04 
